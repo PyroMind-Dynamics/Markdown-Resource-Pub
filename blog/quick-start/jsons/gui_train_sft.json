@@ -1,0 +1,139 @@
+{
+  "5": {
+    "inputs": {
+      "rank": 8,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "target_modules": "k_proj,v_proj",
+      "task_type": "CAUSAL_LM"
+    },
+    "class_type": "LoRAConfigNode",
+    "_meta": {
+      "title": "LoRA Config"
+    }
+  },
+  "14": {
+    "inputs": {
+      "dataset_source": [
+        "25",
+        0
+      ],
+      "input_file": "train_excel_qwen3_vl/action_prediction_training_data.json",
+      "dataset_type": "vlm",
+      "max_samples": 256,
+      "prompt_column": "prompt",
+      "response_column": "response"
+    },
+    "class_type": "LoadLLMOrVLMDataset",
+    "_meta": {
+      "title": "LoadLLMOrVLMDataset"
+    }
+  },
+  "17": {
+    "inputs": {
+      "result": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "ShowResultNode",
+    "_meta": {
+      "title": "ShowResultNode"
+    }
+  },
+  "19": {
+    "inputs": {
+      "logging_steps": 5,
+      "save_steps": 100,
+      "lr_scheduler_type": "constant_with_warmup",
+      "warmup_ratio": 0.001,
+      "max_grad_norm": 0.5,
+      "optim": "adamw_torch_fused",
+      "loss_type": "default"
+    },
+    "class_type": "TrainingAdvancedConfigNode",
+    "_meta": {
+      "title": "Training Advanced Config"
+    }
+  },
+  "21": {
+    "inputs": {
+      "model": "Qwen/Qwen3-VL-4B-Instruct",
+      "target_path": "/workspace/models/"
+    },
+    "class_type": "CloneAndCacheModel",
+    "_meta": {
+      "title": "Clone and Cache Model"
+    }
+  },
+  "23": {
+    "inputs": {
+      "dataset": [
+        "14",
+        0
+      ],
+      "model_type": "qwen3_vl",
+      "output_dir": "/workspace/checkpoints/train_vlm_sft",
+      "gpu_count": 1,
+      "gpu_product": "NVIDIA-H100-NVL",
+      "training_standard_config": [
+        "27",
+        0
+      ],
+      "lora_config": [
+        "5",
+        0
+      ],
+      "training_advanced_config": [
+        "19",
+        0
+      ],
+      "wandb_config": [
+        "24",
+        0
+      ],
+      "model_path": [
+        "21",
+        0
+      ]
+    },
+    "class_type": "GUISFTTrainingNode",
+    "_meta": {
+      "title": "GUI SFT Training"
+    }
+  },
+  "24": {
+    "inputs": {
+      "project_name": "task_gui_sft",
+      "wandb_api_key": "7c7f22bc2f23cda64c29fd2d78e4112890cee22f"
+    },
+    "class_type": "LoggingConfigNode",
+    "_meta": {
+      "title": "Logging Config"
+    }
+  },
+  "25": {
+    "inputs": {
+      "dataset": "gui-360/gui-excel",
+      "target_path": "/workspace/datasets/"
+    },
+    "class_type": "CloneAndCacheDataset",
+    "_meta": {
+      "title": "Clone and Cache Dataset"
+    }
+  },
+  "27": {
+    "inputs": {
+      "batch_size": 2,
+      "gradient_accumulation_steps": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "max_len": 128,
+      "bf16": true
+    },
+    "class_type": "TrainingStandardConfigNode",
+    "_meta": {
+      "title": "Training Standard Config"
+    }
+  }
+}

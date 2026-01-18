@@ -1,0 +1,139 @@
+{
+  "4": {
+    "inputs": {
+      "rank": 8,
+      "lora_alpha": 16,
+      "lora_dropout": 0.1,
+      "target_modules": "k_proj,v_proj",
+      "task_type": "CAUSAL_LM"
+    },
+    "class_type": "LoRAConfigNode",
+    "_meta": {
+      "title": "LoRA Config"
+    }
+  },
+  "9": {
+    "inputs": {
+      "result": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "ShowResultNode",
+    "_meta": {
+      "title": "ShowResultNode"
+    }
+  },
+  "10": {
+    "inputs": {
+      "model": "Qwen/Qwen3-0.6B",
+      "target_path": "/workspace/models/"
+    },
+    "class_type": "CloneAndCacheModel",
+    "_meta": {
+      "title": "Clone and Cache Model"
+    }
+  },
+  "11": {
+    "inputs": {
+      "dataset": "openai/gsm8k",
+      "target_path": "/workspace/datasets/"
+    },
+    "class_type": "CloneAndCacheDataset",
+    "_meta": {
+      "title": "Clone and Cache Dataset"
+    }
+  },
+  "12": {
+    "inputs": {
+      "dataset_source": [
+        "11",
+        0
+      ],
+      "input_file": "main/train-00000-of-00001.parquet",
+      "dataset_type": "llm",
+      "max_samples": 256,
+      "prompt_column": "question",
+      "response_column": "answer"
+    },
+    "class_type": "LoadLLMOrVLMDataset",
+    "_meta": {
+      "title": "LoadLLMOrVLMDataset"
+    }
+  },
+  "13": {
+    "inputs": {
+      "project_name": "task_327",
+      "wandb_api_key": "7c7f22bc2f23cda64c29fd2d78e4112890cee22f"
+    },
+    "class_type": "LoggingConfigNode",
+    "_meta": {
+      "title": "Logging Config"
+    }
+  },
+  "14": {
+    "inputs": {
+      "dataset": [
+        "12",
+        0
+      ],
+      "model_type": "qwen3",
+      "output_dir": "/workspace/checkpoints/llm_sft_lora",
+      "gpu_count": 1,
+      "gpu_product": "NVIDIA-H100-NVL",
+      "training_standard_config": [
+        "15",
+        0
+      ],
+      "lora_config": [
+        "4",
+        0
+      ],
+      "training_advanced_config": [
+        "18",
+        0
+      ],
+      "wandb_config": [
+        "13",
+        0
+      ],
+      "model_path": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "LLMSFTTrainingNode",
+    "_meta": {
+      "title": "LLM SFT Training"
+    }
+  },
+  "15": {
+    "inputs": {
+      "batch_size": 2,
+      "gradient_accumulation_steps": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "max_len": 128,
+      "bf16": true
+    },
+    "class_type": "TrainingStandardConfigNode",
+    "_meta": {
+      "title": "Training Standard Config"
+    }
+  },
+  "18": {
+    "inputs": {
+      "logging_steps": 5,
+      "save_steps": 100,
+      "lr_scheduler_type": "constant_with_warmup",
+      "warmup_ratio": 0.03,
+      "max_grad_norm": 0.5,
+      "optim": "adamw_torch_fused",
+      "loss_type": "grpo"
+    },
+    "class_type": "TrainingAdvancedConfigNode",
+    "_meta": {
+      "title": "Training Advanced Config"
+    }
+  }
+}

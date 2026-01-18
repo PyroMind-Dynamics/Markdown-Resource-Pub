@@ -1,0 +1,43 @@
+{
+  "3": {
+    "inputs": {
+      "result": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "ShowResultNode",
+    "_meta": {
+      "title": "ShowResultNode"
+    }
+  },
+  "7": {
+    "inputs": {
+      "model": "Qwen/Qwen3-0.6B",
+      "target_path": "/workspace/models/"
+    },
+    "class_type": "CloneAndCacheModel",
+    "_meta": {
+      "title": "Clone and Cache Model"
+    }
+  },
+  "13": {
+    "inputs": {
+      "prompt": "Hello, how are you?",
+      "image_path": "",
+      "max_tokens": 100,
+      "temperature": 0.7,
+      "enable_thinking": false,
+      "gpu_count": 1,
+      "gpu_product": "NVIDIA-H100-NVL",
+      "model_path": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "LLMOrVLMInference",
+    "_meta": {
+      "title": "LLM VLM Inference"
+    }
+  }
+}
