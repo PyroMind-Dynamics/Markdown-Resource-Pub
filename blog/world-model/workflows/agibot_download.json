@@ -1,0 +1,111 @@
+{
+  "id": "d39c766f-03a4-48d1-ab3f-44e58cb261c4",
+  "revision": 0,
+  "last_node_id": 2,
+  "last_link_id": 1,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "AgibotFormatToLerobotNode",
+      "pos": [
+        449.3260803222656,
+        91.36508178710938
+      ],
+      "size": [
+        302.9888610839844,
+        154
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "src-path",
+          "type": "STRING",
+          "widget": {
+            "name": "src-path"
+          },
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "lerobot_path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AgibotFormatToLerobotNode",
+        "dystatus": "Succeeded"
+      },
+      "widgets_values": [
+        "/workspace/original_agibot_data",
+        "/workspace/processed_agibot_data",
+        "gripper",
+        1,
+        "NVIDIA-H100-NVL"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "DownloadAgibotDataNode",
+      "pos": [
+        14.256986618041992,
+        237.4943389892578
+      ],
+      "size": [
+        342.77569580078125,
+        144.9954833984375
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "agibot_data_path",
+          "type": "STRING",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAgibotDataNode",
+        "dystatus": "Succeeded"
+      },
+      "widgets_values": [
+        "/workspace/original_agibot_data",
+        374,
+        "YOUR-HUGGINGFACE-ACCESS-KEY-NAME",
+        "YOUR-HUGGINGFACE-ACCESS-KEY"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.2100000000000002,
+      "offset": [
+        -10.195783482264313,
+        4.121100261191332
+      ]
+    },
+    "frontendVersion": "1.20.0",
+    "customType": "fromtask",
+    "taskId": "597"
+  },
+  "version": 0.4
+}

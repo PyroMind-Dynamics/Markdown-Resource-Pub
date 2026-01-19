@@ -1,0 +1,362 @@
+{
+  "id": "bb651a9a-5f57-4d29-9069-1e333ddb89ac",
+  "revision": 0,
+  "last_node_id": 19,
+  "last_link_id": 19,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "CloneAndCacheModel",
+      "pos": [
+        84.33753204345703,
+        562.8115844726562
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model_path",
+          "type": "MODEL",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloneAndCacheModel"
+      },
+      "widgets_values": [
+        "stabilityai/stable-video-diffusion-img2vid",
+        "/workspace/models/"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "CloneAndCacheModel",
+      "pos": [
+        85.18488311767578,
+        727.0564575195312
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model_path",
+          "type": "MODEL",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloneAndCacheModel"
+      },
+      "widgets_values": [
+        "openai/clip-vit-base-patch32",
+        "/workspace/models/"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "CloneAndCacheDataset",
+      "pos": [
+        375.503173828125,
+        559.0934448242188
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "dataset_path",
+          "type": "STRING",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CloneAndCacheDataset"
+      },
+      "widgets_values": [
+        "agibot-world/AgiBotWorld-Alpha-CtrlWorld-327",
+        "/workspace/datasets/"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "CtrlWorldTrainingNode",
+      "pos": [
+        721.7987060546875,
+        566.9746704101562
+      ],
+      "size": [
+        278.73828125,
+        386
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "svd_model_path",
+          "type": "MODEL",
+          "link": 17
+        },
+        {
+          "name": "clip_model_path",
+          "type": "MODEL",
+          "link": 18
+        },
+        {
+          "name": "environment",
+          "shape": 7,
+          "type": "ENV",
+          "link": null
+        },
+        {
+          "name": "training_config",
+          "type": "STRING",
+          "widget": {
+            "name": "training_config"
+          },
+          "link": 19
+        },
+        {
+          "name": "output_model_path",
+          "type": "STRING",
+          "widget": {
+            "name": "output_model_path"
+          },
+          "link": 15
+        },
+        {
+          "name": "wandb_config",
+          "type": "STRING",
+          "widget": {
+            "name": "wandb_config"
+          },
+          "link": 16
+        },
+        {
+          "name": "dataset_root_path",
+          "type": "STRING",
+          "widget": {
+            "name": "dataset_root_path"
+          },
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model_path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CtrlWorldTrainingNode"
+      },
+      "widgets_values": [
+        "",
+        "/workspace/ctrl-world-6e-5-ckpt/",
+        "",
+        "agibotworld_alpha_processed",
+        "task_327",
+        10,
+        2,
+        50,
+        10,
+        6,
+        true,
+        4,
+        "NVIDIA-H100-NVL"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "PrimitiveNode",
+      "pos": [
+        378.2430419921875,
+        885.9088745117188
+      ],
+      "size": [
+        268.85516357421875,
+        70.56859588623047
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "widget": {
+            "name": "output_model_path"
+          },
+          "links": [
+            15
+          ]
+        }
+      ],
+      "title": "output model path",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "/workspace/ctrl-world-6e-5-ckpt/"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "LoggingConfigNode",
+      "pos": [
+        385.12066650390625,
+        726.91748046875
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "wandb_config",
+          "type": "STRING",
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoggingConfigNode"
+      },
+      "widgets_values": [
+        "task_327",
+        "1aa3e57f7ae35e885c20b3a91b5ab2b3d3e0e0a2"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "TrainingConfigNodeV2",
+      "pos": [
+        80.62892150878906,
+        866.017333984375
+      ],
+      "size": [
+        272.73828125,
+        226
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "training_config",
+          "type": "STRING",
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TrainingConfigNodeV2"
+      },
+      "widgets_values": [
+        "6e-5",
+        4,
+        80000,
+        "bf16",
+        1000,
+        2000,
+        true,
+        false
+      ]
+    }
+  ],
+  "links": [
+    [
+      14,
+      1,
+      0,
+      19,
+      6,
+      "STRING"
+    ],
+    [
+      15,
+      18,
+      0,
+      19,
+      4,
+      "STRING"
+    ],
+    [
+      16,
+      13,
+      0,
+      19,
+      5,
+      "STRING"
+    ],
+    [
+      17,
+      3,
+      0,
+      19,
+      0,
+      "MODEL"
+    ],
+    [
+      18,
+      2,
+      0,
+      19,
+      1,
+      "MODEL"
+    ],
+    [
+      19,
+      15,
+      0,
+      19,
+      3,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9551299466651427,
+      "offset": [
+        215.4332666300884,
+        -221.9043024887758
+      ]
+    },
+    "frontendVersion": "1.20.0"
+  },
+  "version": 0.4
+}
