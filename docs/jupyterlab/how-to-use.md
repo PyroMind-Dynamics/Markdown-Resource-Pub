@@ -10,7 +10,7 @@ This guide explains how to create a JupyterLab instance using PyroMind Website a
 
 ## Step 1: Login to PyroMind
 
-First, navigate to the [login page](https://pyromind.ai/login.html?target=%2Fjupyterlab-manage.html) and enter your email address:
+First, navigate to the [login page](https://console.pyromind.ai/dashboard) and enter your email address:
 
 ![Login - Enter Email](imgs/login0.png)
 
@@ -46,7 +46,7 @@ Before creating a JupyterLab instance, you need to add your SSH public key to yo
 
 ## Step 3: Navigate to JupyterLab Instance Management
 
-After adding your SSH key, go to the [JupyterLab Instance List](https://pyromind.ai/jupyterlab-manage.html) page to view and manage your instances.
+After adding your SSH key, go to the [JupyterLab Instance List](https://console.pyromind.ai/instance) page to view and manage your instances.
 
 ## Step 4: Create a JupyterLab Instance
 
