@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "date": "Oct 27, 2025",
+      "route": "",
+      "title": "On-Policy Distillation",
+      "author": "Kevin Lu in collaboration with others at Thinking Machines",
+      "url": "https://raw.githubusercontent.com/PyroMind-Dynamics/Markdown-Resource-Pub/refs/heads/main/blog/quick-start/quick-start.md"
+    },
+    {
+      "date": "Sep 29, 2025",
+      "route": "",
+      "title": "LoRA Without Regret",
+      "author": "John Schulman in collaboration with others at Thinking Machines",
+      "url": "https://raw.githubusercontent.com/PyroMind-Dynamics/Markdown-Resource-Pub/refs/heads/main/blog/compute-use/windows-computer-use.md"
+    },
+    {
+      "date": "Sep 26, 2025",
+      "title": "Modular Manifolds",
+      "route": "zi-ding-yi",
+      "author": "Jeremy Bernstein",
+      "url": "https://raw.githubusercontent.com/PyroMind-Dynamics/Markdown-Resource-Pub/refs/heads/main/blog/world-model/build-ctrl-world.md"
+    },
+    {
+      "date": "Sep 10, 2025",
+      "route": "",
+      "title": "Defeating Nondeterminism in LLM Inference",
+      "author": "Horace He in collaboration with others at Thinking Machines",
+      "url": "https://raw.githubusercontent.com/PyroMind-Dynamics/Markdown-Resource-Pub/refs/heads/main/blog/world-model/build-ctrl-world.md"
+    }
+  ]
+}
