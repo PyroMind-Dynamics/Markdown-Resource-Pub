@@ -27,6 +27,14 @@
       "title": "Defeating Nondeterminism in LLM Inference",
       "author": "Horace He in collaboration with others at Thinking Machines",
       "url": "https://raw.githubusercontent.com/PyroMind-Dynamics/Markdown-Resource-Pub/refs/heads/main/blog/world-model/build-ctrl-world.md"
+    },
+    {
+      "date": "May 29, 2026",
+      "route": "ssh-combined-name-login",
+      "title": "SSH Combined-Username Login for JupyterLab Instances",
+      "author": "PyroMind Team",
+      "url": "https://raw.githubusercontent.com/PyroMind-Dynamics/Markdown-Resource-Pub/refs/heads/main/docs/jupyterlab/ssh-combined-name-login.md"
     }
   ]
 }
+
