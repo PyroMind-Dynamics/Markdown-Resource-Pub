@@ -20,3 +20,13 @@ This section covers topics related to embodied intelligence, including world mod
 
 - **[How to train a World Model with AgibotWorld-Alpha in a few clicks?](world-model/build-ctrl-world.md)**  
   Step-by-step tutorial on training Ctrl-World, a controllable generative world model for robot manipulation, using the AgibotWorld-Alpha dataset. Includes detailed explanations of the model architecture, data preprocessing, training process, and performance evaluation.
+
+
+
+
+
+
+### JupyterLab Use
+
+- **[SSH Combined-Username Login for JupyterLab Instances](ssh-combined-login/ssh-combined-login.md)**  
+  Configure per-user system accounts on a shared JupyterLab instance via `start-hook.sh` and `/workspace/.users`, then log in over SSH using a `+username` suffix in the connection string instead of the default `root` account.
