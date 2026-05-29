@@ -1,6 +1,6 @@
 # SSH 组合用户名登录 JupyterLab 实例
 
-**[English](ssh-combined-name-login.md)** | **中文**
+**[English](ssh-combined-login.md)** | **中文**
 
 ## 背景
 

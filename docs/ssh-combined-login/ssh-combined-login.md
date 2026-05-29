@@ -1,6 +1,6 @@
 # SSH Combined-Username Login for JupyterLab Instances
 
-**English** | **[中文](ssh-combined-name-login-cn.md)**
+**English** | **[中文](ssh-combined-login-cn.md)**
 
 ## Background
 
